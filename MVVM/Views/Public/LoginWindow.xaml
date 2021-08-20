@@ -1,0 +1,82 @@
+﻿<Window x:Class="CMP332.MVVM.Views.Public.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:CMP332.MVVM.Views.Public"
+        xmlns:viewModels="clr-namespace:CMP332.MVVM.ViewModels"
+        mc:Ignorable="d"
+        Title="Login" Height="600" Width="920"
+        Visibility="{Binding IsVisible}">
+    
+    <Window.DataContext>
+        <viewModels:LoginWindowVM />
+    </Window.DataContext>
+    <StackPanel>
+    
+        <StackPanel.Background>
+            DarkGray
+        </StackPanel.Background>
+
+
+        <StackPanel VerticalAlignment="Center" Margin="0 100">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Login"
+                           FontWeight="Light"
+                           FontFamily="helvetica"
+                           FontSize="22"
+                           Foreground="Black"
+                           HorizontalAlignment="Center" />
+
+                <TextBox FontFamily="Helvetica"
+                         FontWeight="Light"
+                         Text="{Binding Username}"
+                         FontSize="20"
+                         HorizontalAlignment="Center"
+                         Foreground="Black"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Width="235"
+                         HorizontalContentAlignment="Left"
+                         Opacity="0.5"
+                         Margin="0 30 0 0 "
+                         Height="25" />
+                <Border Width="250"
+                        Height="2"
+                        Background="Black"
+                        Opacity="0.5" />
+
+                <TextBox
+                    FontFamily="Helvetica"
+                    FontWeight="Light"
+                    FontSize="20"
+                    HorizontalAlignment="Center"
+                    Foreground="Black"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Width="235"
+                    HorizontalContentAlignment="Left"
+                    Opacity="0.5"
+                    Margin="0 30 0 0 "
+                    Height="25"
+                    Text="{Binding Password}"
+                    />
+                <Border Width="250"
+                        Height="2"
+                        Background="Black"
+                        Opacity="0.5" />
+                
+                <Label Foreground="Red"  FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       HorizontalAlignment="Center" 
+                       Content="{Binding ValidationError}" />
+                
+                
+                <Button Content="Login" Width="100" Margin="0 40" Command="{Binding LoginCommand}"></Button>
+            </StackPanel>
+        </StackPanel>
+
+
+    </StackPanel>
+</Window>
